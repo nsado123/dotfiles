@@ -22,10 +22,95 @@ WARNING="${RED}\xF0\x9F\x9A\xA8${NC}"
 set -e  # exit on error
 #---------------------------------------
 # packages and services
-PACMAN_PACKAGES=("neovim" "btop" "git" "curl")
-AUR_PACKAGES=("visual-studio-code-bin" "waytrogen")  
+USER_SERVICES=("hyprpolkitagent" "waybar")
 SYSTEM_SERVICES=("swayosd-libinput-backend.service")  # do not put sddm here as it will start it and take over
-USER_SERVICES=("hyprpolkitagent")
+AUR_PACKAGES=("visual-studio-code-bin" "waytrogen" "swayosd-git" "uwsm" "bibata-cursor-git" "all-repository-fonts" "spicetify-cli-git" "clipse-bin" "ddcutil")  
+PACMAN_PACKAGES=(
+    # system utilities
+    btop
+    fastfetch
+    fish
+    starship
+    zoxide
+    rsync
+    git
+    nano
+    jq
+    parallel
+    imagemagick
+    libnotify
+    pacman-contrib
+    brightnessctl
+    stow
+    7zip
+    fd
+    fzf
+    poppler
+    # Hyprland & Wayland Environment
+    hyprland
+    hypridle
+    hyprpaper
+    hyprlock
+    swaync
+    nwg-look
+    nwg-displays
+    waybar
+    wlogout
+    wl-clipboard
+    slurp
+    satty
+    clipse
+    hyprpolkitagent
+    xdg-desktop-portal-hyprland
+    xdg-desktop-portal-gtk
+    # Networking & Bluetooth
+    networkmanager
+    network-manager-applet
+    blueman
+    bluez
+    bluez-utils
+    nextcloud-client
+    # File Management
+    udiskie
+    dolphin
+    yazi
+    ark
+    # Theming & Appearance
+    qt5ct
+    qt6ct
+    kvantum
+    kvantum-qt5
+    qt5-wayland
+    qt6-wayland
+    kde-cli-tools
+    tela-circle-icon-theme-dracula
+    # Pipewire & Audio
+    pipewire
+    pipewire-alsa
+    pipewire-audio
+    pipewire-jack
+    pipewire-pulse
+    gst-plugin-pipewire
+    wireplumber
+    pavucontrol
+    pamixer
+    # Applications
+    kitty
+    rofi-wayland
+    spotify-launcher
+    vivaldi
+    vesktop
+    obsidian
+    sddm
+    cmake
+    neovim
+    # KDE Integration
+    kwallet
+    kwallet-pam
+    kio
+    qt5-imageformats
+    ffmpegthumbs
+)    
 #---------------------------------------
 # autologin setup
 sddm_autologin() {
@@ -80,4 +165,5 @@ if command -v sddm &> /dev/null; then
     esac
 fi
 # end
-echo "${LAVENDER}System Setup Finished...${NC}\n"
+echo "${SUCCESS}System Setup Finished...${NC}\n"
+echo "${WARNING}Don't Forget to Reboot!"
