@@ -10,3 +10,6 @@ case "$action" in
     *)
         ;;
 esac
+# end
+echo -e "${SUCCESS}System Setup Finished...${NC}\n"
+echo -e "${WARNING}Don't Forget to Reboot!"

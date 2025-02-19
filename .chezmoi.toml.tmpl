@@ -1,0 +1,15 @@
+# ~/.config/chezmoi/chezmoi.toml
+
+[data]
+    name = "{{ promptStringOnce . "name" "Enter your name" }}"
+    email = "{{ promptStringOnce . "email" "Enter your email address" }}"
+
+[source]
+    dir = "{{ .chezmoi.homeDir }}/.dotfiles"
+
+[merge]
+    command = "nvim"
+    args = ["-d", "{{ .Destination }}", "{{ .Source }}", "{{ .Target }}"]
+
+[git]
+    autoPush = true

@@ -24,7 +24,7 @@ set -e  # exit on error
 # packages and services
 USER_SERVICES=("hyprpolkitagent" "waybar")
 SYSTEM_SERVICES=("swayosd-libinput-backend.service")  # do not put sddm here as it will start it and take over
-AUR_PACKAGES=("visual-studio-code-bin" "waytrogen" "swayosd-git" "uwsm" "bibata-cursor-git" "all-repository-fonts" "spicetify-cli-git" "clipse-bin" "ddcutil")  
+AUR_PACKAGES=("visual-studio-code-bin" "waytrogen" "swayosd-git" "uwsm" "bibata-cursor-git" "all-repository-fonts" "spicetify-cli-git" "clipse-bin" "ddcutil" "kvantum-qt6" kvantum-theme-catppuccin-git)  
 PACMAN_PACKAGES=(
     # system utilities
     btop
@@ -78,12 +78,14 @@ PACMAN_PACKAGES=(
     # Theming & Appearance
     qt5ct
     qt6ct
-    kvantum
     kvantum-qt5
     qt5-wayland
     qt6-wayland
     kde-cli-tools
     tela-circle-icon-theme-dracula
+    gtk4
+    gtk3
+    gtk2
     # Pipewire & Audio
     pipewire
     pipewire-alsa
@@ -112,16 +114,6 @@ PACMAN_PACKAGES=(
     ffmpegthumbs
 )    
 #---------------------------------------
-# autologin setup
-sddm_autologin() {
-sudo mkdir -p /etc/sddm.conf.d
-sudo tee /etc/sddm.conf.d/autologin.conf > /dev/null <<EOF
-[Autologin]
-User=nsado
-Session=hyprland-uwsm
-EOF
-}
-#---------------------------------------
 # no sudo run
 if [[ $EUID -eq 0 ]]; then
     echo -e "${RED}${WARNING} Do not run this script as root${NC}"
@@ -148,22 +140,4 @@ echo -e "${MAROON}Enabling System Services...${NC}\n"
 sudo systemctl enable --now "${SYSTEM_SERVICES[@]}" && echo -e "${SUCCESS} System services enabled & started" || echo -e "${FAIL} System services failed to enable/start"
 # enable user services
 echo -e "${MAROON} Enabling User Services...${NC}\n"
-systemctl --user enable --now "${SYSTEM_SERVICES[@]}" && echo -e "${SUCCESS} User services enabled & started" || echo -e "${FAIL} User services failed to enable/start"
-# sddm autologin setup
-if command -v sddm &> /dev/null; then
-    echo -ne "${MAROON}Detected Sddm Installed...Setup Autologin? (Y/n):${NC}"
-    read -r response
-    case "$response" in 
-        [Nn]* )
-            echo -e "${FLAMINGO}Skipping Autologin"
-            ;;
-        * )
-            echo -e "${ROSEWATER}Setting up autologin..."
-            sudo systemctl enable sddm
-            sddm_autologin
-            ;;
-    esac
-fi
-# end
-echo "${SUCCESS}System Setup Finished...${NC}\n"
-echo "${WARNING}Don't Forget to Reboot!"
+systemctl --user enable --now "${USER_SERVICES[@]}" && echo -e "${SUCCESS} User services enabled & started" || echo -e "${FAIL} User services failed to enable/start"
