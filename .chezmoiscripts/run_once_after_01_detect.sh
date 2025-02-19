@@ -62,3 +62,5 @@ fi
 if command -v ya &> /dev/null; then
     ya pack -i -u
 fi
+
+systemctl daemon-reload

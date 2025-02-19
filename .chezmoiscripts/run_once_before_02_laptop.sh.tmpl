@@ -1,0 +1,36 @@
+#!/bin/sh
+#---------------
+{{- if eq .chezmoi.hostname "nsado-laptop" -}}
+#---------------
+# install packages
+paru -S libinput-gestures-git auto-cpufreq
+#---------------
+# start auto-cpufreq
+if command -v auto-cpufreq &> /dev/null; then
+    sudo auto-cpufreq --install && sudo systemctl enable --now auto-cpufreq.service
+fi
+#----------------
+# libinput gestures execute
+if command -v libinput-gestures &> /dev/null; then
+    echo "exec-once = uwsm app -- libinput-gestures &" | sudo tee -a ~/.local/share/chezmoi/dot_config/hypr/autostart.conf > /dev/null
+fi
+#----------------
+# create battery.service
+battery_service() {
+mkdir -p ~/.config/systemd/user
+tee ~/.config/systemd/user/battery.service > /dev/null <<EOF
+[Service]
+ExecStart=/home/nsado/.local/bin/battery-notification-daemon
+Restart=always
+Type=simple
+
+[Install]
+WantedBy=default.target
+EOF
+}
+battery_service
+#------------
+# Reload systemd manager configuration
+systemctl --user daemon-reload && systemctl --user enable --now battery.service
+#-----------
+{{- end -}}
