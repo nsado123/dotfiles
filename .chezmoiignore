@@ -1,0 +1,9 @@
+# Ignore all Markdown files
+*.md
+# Ignore specific directories and their contents
+secrets/
+secrets/**
+# Ignore all text files in any directory
+#**/*.txt
+# Ignore a specific file
+#~/.bash_history

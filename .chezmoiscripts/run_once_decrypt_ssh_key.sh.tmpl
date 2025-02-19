@@ -1,0 +1,11 @@
+#!/bin/bash
+#--------------
+# decrypt  
+echo "Decrypting SSH Key..."
+age --decrypt --output ~/.ssh/id_ed25519 ~/.ssh/id_ed25519.age
+# set permissions
+chmod 600 ~/.ssh/id_ed25519
+# finalize
+ssh-add ~/.ssh/id_ed25519
+echo "Complete..."
+

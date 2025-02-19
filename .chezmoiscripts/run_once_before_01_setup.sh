@@ -46,6 +46,9 @@ PACMAN_PACKAGES=(
     fd
     fzf
     poppler
+    age
+    keychain
+    openssh
     # Hyprland & Wayland Environment
     hyprland
     hypridle
