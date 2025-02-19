@@ -1,0 +1,14 @@
+2025/02/18-08:20:42.531 4cd62 Reusing MANIFEST /home/nsado/.config/vesktop/sessionData/Local Storage/leveldb/MANIFEST-000001
+2025/02/18-08:20:42.547 4cd62 Recovering log #8
+2025/02/18-08:20:42.547 4cd62 Reusing old log /home/nsado/.config/vesktop/sessionData/Local Storage/leveldb/000008.log 
+2025/02/18-08:31:59.399 4cd62 Level-0 table #12: started
+2025/02/18-08:31:59.416 4cd62 Level-0 table #12: 33319 bytes OK
+2025/02/18-08:31:59.428 4cd62 Delete type=0 #8
+2025/02/18-08:31:59.429 4cd62 Compacting 4@0 + 0@1 files
+2025/02/18-08:31:59.438 4cd62 Generated table #13@0: 97 keys, 24691 bytes
+2025/02/18-08:31:59.438 4cd62 Compacted 4@0 + 0@1 files => 24691 bytes
+2025/02/18-08:31:59.451 4cd62 compacted to: files[ 0 1 0 0 0 0 0 ]
+2025/02/18-08:31:59.451 4cd62 Delete type=2 #3
+2025/02/18-08:31:59.451 4cd62 Delete type=2 #7
+2025/02/18-08:31:59.451 4cd62 Delete type=2 #9
+2025/02/18-08:31:59.451 4cd62 Delete type=2 #12
