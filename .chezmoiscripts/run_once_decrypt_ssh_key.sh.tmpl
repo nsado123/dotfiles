@@ -1,11 +1,21 @@
+{{- if eq .chezmoi.username "nsado" }}
 #!/bin/bash
-#--------------
-# decrypt  
-echo "Decrypting SSH Key..."
-age --decrypt --output ~/.ssh/id_ed25519 ~/.ssh/id_ed25519.age
-# set permissions
-chmod 600 ~/.ssh/id_ed25519
-# finalize
-ssh-add ~/.ssh/id_ed25519
-echo "Complete..."
 
+SSH_DIR="$HOME/.ssh"
+PRIVATE_KEY="$SSH_DIR/id_rsa"
+ENCRYPTED_KEY="$SSH_DIR/id_rsa.age"
+
+# Ensure the SSH directory exists
+mkdir -p "$SSH_DIR"
+chmod 700 "$SSH_DIR"
+
+# Check if the encrypted SSH key exists
+if [[ -f "$ENCRYPTED_KEY" ]]; then
+    # Decrypt the SSH key using age
+    age -d "$ENCRYPTED_KEY" > "$PRIVATE_KEY" 2>/dev/null
+    chmod 600 "$PRIVATE_KEY" 2>/dev/null
+
+    # Add the SSH key to the agent
+    ssh-add "$PRIVATE_KEY" >/dev/null 2>&1
+fi
+{{- end }}
