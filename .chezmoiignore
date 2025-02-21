@@ -1,6 +1,7 @@
 # Ignore files
 *.md
 *.log
+~/.config/clipse/clipboard_history.json
 # Ignore specific directories and their contents
 secrets/
 secrets/**
