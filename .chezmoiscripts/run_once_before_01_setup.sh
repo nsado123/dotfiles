@@ -134,10 +134,10 @@ sudo pacman -S "${PACMAN_PACKAGES[@]}" && echo -e "${SUCCESS} Pacman packages in
 echo -e "${MAROON}Installing Aur Packages...${NC}\n"
 while true; do 
     if command -v paru &> /dev/null; then
-        paru -Syu "${AUR_PACKAGES[@]}" && echo -e "${SUCCESS} Aur packages installed" || echo -e "${FAIL} Aur packages failed to install"
+        paru -Syu --needed"${AUR_PACKAGES[@]}" && echo -e "${SUCCESS} Aur packages installed" || echo -e "${FAIL} Aur packages failed to install"
         break
     elif command -v yay &> /dev/null; then 
-        yay -Syu "${AUR_PACKAGES[@]}" && echo -e "${SUCCESS} Aur packages installed" || echo -e "${FAIL} Aur packages failed to install"
+        yay -Syu --neded "${AUR_PACKAGES[@]}" && echo -e "${SUCCESS} Aur packages installed" || echo -e "${FAIL} Aur packages failed to install"
         break    
     else 
         echo -e "${WARNING}No AUR helper installed...Installing Paru..."
