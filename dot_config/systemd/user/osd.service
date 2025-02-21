@@ -1,0 +1,17 @@
+[Unit]
+Description=SwayOSD Server
+After=graphical-session.target
+Wants=graphical-session.target
+
+[Service]
+ExecStart=/usr/bin/swayosd-server
+Restart=always
+RestartSec=3
+Environment=DISPLAY=:0
+Environment=XDG_RUNTIME_DIR=%t
+Environment=WAYLAND_DISPLAY=%k
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=default.target

@@ -62,5 +62,11 @@ fi
 if command -v ya &> /dev/null; then
     ya pack -i -u
 fi
-
+#---------------------------------------
+# swayosd setup
+if command -v swayosd-server &> /dev/null; then 
+    systemctl --user enable --now osd.service
+fi 
+#---------------------------------------
+# reload daemon to complete
 systemctl daemon-reload

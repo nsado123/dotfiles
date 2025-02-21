@@ -1,13 +1,13 @@
 {
     "allowDuplicates": false,
     "historyFile": "clipboard_history.json",
-    "maxHistory": 100,
+    "maxHistory": 1000,
     "logFile": "clipse.log",
     "themeFile": "custom_theme.json",
     "tempDir": "tmp_files",
     "keyBindings": {
         "choose": "enter",
-        "clearSelected": "S",
+        "clearSelected": "c",
         "down": "down",
         "end": "end",
         "filter": "/",
@@ -15,19 +15,19 @@
         "more": "?",
         "nextPage": "right",
         "prevPage": "left",
-        "preview": " ",
+        "preview": "e",
         "quit": "q",
         "remove": "x",
-        "selectDown": "ctrl+down",
-        "selectSingle": "s",
-        "selectUp": "ctrl+up",
+        "selectDown": "shift+down",
+        "selectSingle": "space",
+        "selectUp": "shift+up",
         "togglePin": "p",
         "togglePinned": "tab",
         "up": "up",
-        "yankFilter": "ctrl+s"
+        "yankFilter": "y"
     },
     "imageDisplay": {
-        "type": "basic",
+        "type": "kitty",
         "scaleX": 9,
         "scaleY": 9,
         "heightCut": 2
