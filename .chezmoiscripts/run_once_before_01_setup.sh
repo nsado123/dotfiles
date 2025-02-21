@@ -24,7 +24,7 @@ set -e  # exit on error
 # packages and services
 USER_SERVICES=("hyprpolkitagent" "waybar")
 SYSTEM_SERVICES=("swayosd-libinput-backend.service")  # do not put sddm here as it will start it and take over
-AUR_PACKAGES=("topgrade" "visual-studio-code-bin" "waytrogen" "swayosd-git" "uwsm" "bibata-cursor-git" "all-repository-fonts" "spicetify-cli-git" "clipse-bin" "ddcutil" "kvantum-qt6" "kvantum-theme-catppuccin-git" "dracula-gtk-theme-git")  
+AUR_PACKAGES=("topgrade" "visual-studio-code-bin" "waytrogen" "swayosd-git" "uwsm" "bibata-cursor-git" "all-repository-fonts" "spicetify-cli-git" "clipse-bin" "ddcutil" "kvantum-qt6-git" "kvantum-theme-catppuccin-git" "dracula-gtk-theme-git")  
 PACMAN_PACKAGES=(
     # system utilities
     btop
