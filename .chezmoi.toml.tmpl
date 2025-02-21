@@ -4,8 +4,6 @@
     name = "{{ promptStringOnce . "name" "Enter your git name" }}"
     email = "{{ promptStringOnce . "email" "Enter your git email address" }}"
 
-[source]
-    sourceDir = "{{ .chezmoi.homeDir }}/.dotfiles"
 
 [merge]
     command = "nvim"
