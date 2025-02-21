@@ -8,7 +8,6 @@ export MOZ_ENABLE_WAYLAND=1
 export GDK_SCALE=1
 export KITTY_ENABLE_WAYLAND=1
 export PATH="$XDG_DATA_HOME/cargo/bin:$PATH"
-export PATH="$HOME/.config/scripts:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
 export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
