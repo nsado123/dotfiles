@@ -17,7 +17,7 @@
     // positions generated based on config.ctl //
     
         "modules-left": ["custom/padd","custom/l_end","wlr/taskbar","mpris","custom/r_end","custom/padd"],
-        "modules-center": ["custom/padd","custom/l_end","clock","custom/r_end","custom/padd"],
+        "modules-center": ["custom/padd","custom/l_end","custom/updates","clock","custom/r_end","custom/padd"],
         "modules-right": ["custom/l_end","privacy","tray","battery","custom/r_end","custom/l_end","custom/notification","pulseaudio","custom/cliphist","custom/power","custom/r_end","custom/padd"],
     
     
@@ -33,38 +33,44 @@
             "on-click": "activate",
             "on-click-middle": "close",
             "ignore-list": [
-                "Alacritty"
+                ""
             ],
             "app_ids-mapping": {
                 "firefoxdeveloperedition": "firefox-developer-edition",
           "jetbrains-datagrip": "DataGrip"
             }
         },
-            
+         
+        "custom/updates": {
+            "exec": "update.sh",
+            "format": "\uf17c",
+            "rotate": 0,
+            "on-click": "hyprctl dispatch exec 'kitty -e update.sh'",
+            "interval": 21600000, // once every 6 hours
+            "tooltip": true,
+            "signal": 20
+        },        
+
         "custom/notification": {
-        "tooltip": false,
-        "format": "{} {icon}",
-        "format-icons": {
-            "email-notification": "<span foreground='white'><sup></sup></span>",
-            "chat-notification": "󱋊<span foreground='white'><sup></sup></span>",
-            "warning-notification": "󱨪<span foreground='yellow'><sup></sup></span>",
-            "error-notification": "󱨪<span foreground='red'><sup></sup></span>",
-            "network-notification": "󱂇<span foreground='white'><sup></sup></span>",
-            "battery-notification": "󰁺<span foreground='white'><sup></sup></span>",
-            "update-notification": "󰚰<span foreground='white'><sup></sup></span>",
-            "music-notification": "󰝚<span foreground='white'><sup></sup></span>",
-            "volume-notification": "󰕿<span foreground='white'><sup></sup></span>",
-            "notification": "<span foreground='white'><sup></sup></span>",
-            "dnd-notification": "<span foreground='red'><sup></sup></span>",
-            "dnd-none": "",
-            "none": ""
-        },
-        "return-type": "json",
-        "exec-if": "which swaync-client",
-        "exec": "swaync-client -swb",
-        "on-click": "sleep 0.1 && swaync-client -t -sw",
-        "on-click-right": "sleep 0.1 && swaync-client -d -sw",
-        "escape": true
+            "tooltip": false,
+            "format":"{icon}",
+            "rotate": 0,
+            "format-icons": {
+                "notification": "<span foreground='red'><sup></sup></span>",
+                "none": "",
+                "dnd-notification": "<span foreground='red'><sup></sup></span>",
+                "dnd-none": "",
+                "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+                "inhibited-none": "",
+                "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+                "dnd-inhibited-none": ""
+            },
+          "return-type": "json",
+          "exec-if": "which swaync-client",
+          "exec": "swaync-client -swb",
+          "on-click": "sleep 0.1 && swaync-client -t -sw",
+          "on-click-right": "swaync-client -d -sw",
+          "escape": true
         },
     
         "mpris": {

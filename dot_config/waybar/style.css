@@ -1,7 +1,7 @@
 * {
     border: none;
     border-radius: 0px;
-    font-family: "JetBrainsMono Nerd Font";
+    font-family: "FontAwesome";
     font-weight: bold;
     font-size: 10px;
     min-height: 10px;
@@ -10,12 +10,12 @@
 @import "theme.css";
 
 window#waybar {
-    background: @bar-bg;
+    background: @transparent;
 }
 
 tooltip {
-    background: @main-bg;
-    color: @main-fg;
+    background: @base;
+    color: @mauve;
     border-radius: 7px;
     border-width: 0px;
 }
@@ -31,12 +31,12 @@ tooltip {
     padding-left: 2px;
     padding-right: 2px;
     margin-right: 0px;
-    color: @main-fg;
+    color: @base;
     animation: ws_normal 20s ease-in-out 1;
 }
 
 #workspaces button.active {
-    background: @wb-act-bg;
+    background: @mauve;
     color: @wb-act-fg;
     margin-left: 2px;
     padding-left: 11px;
@@ -47,8 +47,8 @@ tooltip {
 }
 
 #workspaces button:hover {
-    background: @wb-hvr-bg;
-    color: @wb-hvr-fg;
+    background: @mauve;
+    color: @mauve;
     animation: ws_hover 20s ease-in-out 1;
     transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
 }
@@ -64,13 +64,13 @@ tooltip {
     padding-left: 2px;
     padding-right: 2px;
     margin-right: 0px;
-    color: @wb-color;
+    color: @mauve;
     animation: tb_normal 20s ease-in-out 1;
 }
 
 #taskbar button.active {
-    background: @wb-act-bg;
-    color: @wb-act-color;
+    background: @mauve;
+    color: @mauve;
     margin-left: 2px;
     padding-left: 11px;
     padding-right: 11px;
@@ -80,7 +80,7 @@ tooltip {
 }
 
 #taskbar button:hover {
-    background: @wb-hvr-bg;
+    background: @mauve;
     color: @wb-hvr-color;
     animation: tb_hover 20s ease-in-out 1;
     transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
@@ -110,7 +110,6 @@ tooltip {
 #memory,
 #mpris,
 #network,
-#custom-notifications,
 #custom-power,
 #privacy,
 #pulseaudio,
@@ -118,6 +117,7 @@ tooltip {
 #taskbar,
 #custom-theme,
 #tray,
+#custom-notification,
 #custom-updates,
 #custom-wallchange,
 #custom-wbar,
@@ -129,12 +129,12 @@ tooltip {
 #custom-sr_end,
 #custom-rl_end,
 #custom-rr_end {
-    color: @main-fg;
-    background: @main-bg;
+    color: @mauve;
+    background: @mantle;
     opacity: 1;
     margin: 4px 0px 4px 0px;
     padding-left: 4px;
-    padding-right: 4px;
+    padding-right: 4px
 }
 
 #workspaces,
