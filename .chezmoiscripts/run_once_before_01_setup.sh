@@ -138,8 +138,8 @@ else
     echo -e "${WARNING}Paru not installed..."
 fi
 # enable system services
-#echo -e "${MAROON}Enabling System Services...${NC}\n"
-#sudo systemctl enable --now "${SYSTEM_SERVICES[@]}" && echo -e "${SUCCESS} System services enabled & started" || echo -e "${FAIL} System services failed to enable/start"
-## enable user services
-#echo -e "${MAROON} Enabling User Services...${NC}\n"
-#systemctl --user enable --now "${USER_SERVICES[@]}" && echo -e "${SUCCESS} User services enabled & started" || echo -e "${FAIL} User services failed to enable/start"
+echo -e "${MAROON}Enabling System Services...${NC}\n"
+sudo systemctl enable "${SYSTEM_SERVICES[@]}" && echo -e "${SUCCESS} System services enabled & started" || echo -e "${FAIL} System services failed to enable/start"
+# enable user services
+echo -e "${MAROON} Enabling User Services...${NC}\n"
+systemctl --user enable "${USER_SERVICES[@]}" && echo -e "${SUCCESS} User services enabled & started" || echo -e "${FAIL} User services failed to enable/start"
