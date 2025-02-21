@@ -14,9 +14,14 @@ function y
 	rm -f -- "$tmp"
 end
 
-# start ssh-agent
-if status is-login
-  keychain --eval --agents ssh id_ed25519 > /dev/null 2>&1 | source
+# Start SSH agent if not already running
+if not pgrep -u (id -u) ssh-agent > /dev/null
+    eval (ssh-agent -c) > /dev/null 2>&1
+end
+
+# Load SSH keys only in an interactive session
+if status is-interactive
+    keychain --eval --agents ssh id_ed25519 --quiet --nogui | source
 end
 
 # List Directory
