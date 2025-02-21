@@ -1,5 +1,6 @@
-# Ignore all Markdown files
+# Ignore files
 *.md
+*.log
 # Ignore specific directories and their contents
 secrets/
 secrets/**
