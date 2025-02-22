@@ -1,22 +1,24 @@
+{{ if eq .chezmoi.username "nsado" -}}
 #!/bin/bash
 #----------------
-{{- if eq .chezmoi.username "nsado" }}
-
-SSH_DIR="$HOME/.ssh"
-PRIVATE_KEY="$SSH_DIR/id_rsa"
-ENCRYPTED_KEY="$SSH_DIR/id_rsa.age"
-
-# Ensure the SSH directory exists
-mkdir -p "$SSH_DIR"
-chmod 700 "$SSH_DIR"
-
-# Check if the encrypted SSH key exists
-if [[ -f "$ENCRYPTED_KEY" ]]; then
-    # Decrypt the SSH key using age
-    age -d "$ENCRYPTED_KEY" > "$PRIVATE_KEY" 2>/dev/null
-    chmod 600 "$PRIVATE_KEY" 2>/dev/null
-
-    # Add the SSH key to the agent
-    ssh-add "$PRIVATE_KEY" >/dev/null 2>&1
-fi
-{{- end }}
+{{ if not (stat "~/.ssh") }}
+  mkdir -p ~/.ssh
+  chmod 700 ~/.ssh
+{{ end }}
+#----------------
+{{ if not (lookPath "ssh") }}
+  echo "OpenSSH is not installed...Installing"
+  sudo pacman -S --noconfirm openssh 
+{{ end }}
+#----------------
+{{ if not (lookPath "age") }}
+  echo "Age encryption tool is not installed."
+  sudo pacman -S --noconfirm age
+{{ end }}
+#----------------
+{{ if not (stat "~/.ssh/id_ed25519") }}
+  age -d -o ~/.ssh/id_ed25519 ~/.local/share/chezmoi/secrets/id_ed25519.age
+  chmod 600 ~/.ssh/id_ed25519
+{{ end }}
+#----------------
+{{ end -}}

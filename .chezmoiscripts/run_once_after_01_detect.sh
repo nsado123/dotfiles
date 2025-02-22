@@ -65,7 +65,7 @@ fi
 #---------------------------------------
 # swayosd setup
 if command -v swayosd-server &> /dev/null; then 
-    systemctl --user enable --now osd.service
+    systemctl --user enable osd.service
 fi 
 #---------------------------------------
 # reload daemon to complete

@@ -1,6 +1,5 @@
+{{ if eq .chezmoi.hostname "nsado-laptop" -}}
 #!/bin/sh
-#---------------
-{{- if eq .chezmoi.hostname "nsado-laptop" -}}
 #---------------
 # install packages
 paru -S libinput-gestures-git auto-cpufreq
@@ -31,6 +30,6 @@ EOF
 battery_service
 #------------
 # Reload systemd manager configuration
-systemctl --user daemon-reload && systemctl --user enable --now battery.service
+systemctl --user daemon-reload && systemctl --user enable battery.service
 #-----------
 {{- end -}}

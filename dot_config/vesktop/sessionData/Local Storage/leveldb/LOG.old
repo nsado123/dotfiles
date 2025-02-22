@@ -1,7 +1,0 @@
-2025/02/18-08:20:12.121 4cc51 Reusing MANIFEST /home/nsado/.config/vesktop/sessionData/Local Storage/leveldb/MANIFEST-000001
-2025/02/18-08:20:12.124 4cc51 Recovering log #6
-2025/02/18-08:20:12.124 4cc51 Level-0 table #9: started
-2025/02/18-08:20:12.139 4cc51 Level-0 table #9: 26060 bytes OK
-2025/02/18-08:20:12.139 4cc51 Recovering log #8
-2025/02/18-08:20:12.139 4cc51 Reusing old log /home/nsado/.config/vesktop/sessionData/Local Storage/leveldb/000008.log 
-2025/02/18-08:20:12.151 4cc51 Delete type=0 #6
