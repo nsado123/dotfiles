@@ -16,5 +16,4 @@ export ELECTRON_OZONE_PLATFORM_HINT,auto
 # Nvidia
 export LIBVA_DRIVER_NAME=nvidia
 export __GLX_VENDOR_LIBRARY_NAME=nvidia
-export NVD_BACKEND,direct # Requires 'libva-nvidia-driver' package
-export GBM_BACKEND,nvidia-drm
+export __GL_VRR_ALLOWED=1
