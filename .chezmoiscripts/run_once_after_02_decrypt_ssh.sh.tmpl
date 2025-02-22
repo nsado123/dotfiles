@@ -19,6 +19,7 @@
 {{ if not (stat "~/.ssh/id_ed25519") }}
   age -d -o ~/.ssh/id_ed25519 ~/.local/share/chezmoi/secrets/id_ed25519.age
   chmod 600 ~/.ssh/id_ed25519
+  cp ~/.local/share/chezmoi/secrets/id_ed25519.pub ~/.ssh
 {{ end }}
 #----------------
 {{ end -}}
