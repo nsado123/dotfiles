@@ -81,14 +81,13 @@ tooltip {
 
 #taskbar button:hover {
     background: @mauve;
-    color: @wb-hvr-color;
+    color: @mauve;
     animation: tb_hover 20s ease-in-out 1;
     transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
 }
 
 #tray menu * {
     min-height: 16px
-    color: @mauve;
 }
 
 #tray menu separator {
