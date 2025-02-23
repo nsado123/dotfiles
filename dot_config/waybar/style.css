@@ -88,6 +88,7 @@ tooltip {
 
 #tray menu * {
     min-height: 16px
+    color: @mauve;
 }
 
 #tray menu separator {
