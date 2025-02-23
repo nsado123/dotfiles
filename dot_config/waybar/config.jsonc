@@ -18,7 +18,7 @@
     
         "modules-left": ["custom/padd","custom/l_end","wlr/taskbar","mpris","custom/r_end","custom/padd"],
         "modules-center": ["custom/padd","custom/l_end","custom/updates","clock","custom/r_end","custom/padd"],
-        "modules-right": ["custom/l_end","privacy","tray","battery","custom/r_end","custom/l_end","custom/notification","pulseaudio","custom/power","custom/r_end","custom/padd"],
+        "modules-right": ["custom/l_end","privacy","tray","battery","custom/notification","pulseaudio","custom/power","custom/r_end","custom/padd"],
     
     
     // sourced from modules based on config.ctl //.config//
