@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Script to check for updates and send a notification
 # -------------------------
 ICON=$(awk -F= '/^ID=/{print $2}' /etc/os-release)

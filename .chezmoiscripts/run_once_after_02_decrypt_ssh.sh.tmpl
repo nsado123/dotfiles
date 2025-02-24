@@ -1,5 +1,5 @@
 {{ if eq .chezmoi.username "nsado" -}}
-#!/bin/bash
+#!/usr/bin/env bash
 #----------------
 {{ if not (stat "~/.ssh") }}
   mkdir -p ~/.ssh

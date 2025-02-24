@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Define the mapping between hyprctl names and ddcutil display numbers
 declare -A monitor_map

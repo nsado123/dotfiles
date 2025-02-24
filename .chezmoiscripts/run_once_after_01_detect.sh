@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #---------------------------------------
 # color codes
 ROSEWATER="\e[38;2;245;224;220m"
