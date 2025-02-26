@@ -59,14 +59,12 @@ if command -v ddcui &> /dev/null; then
 fi
 #---------------------------------------
 # yazi setup
-if command -v ya &> /dev/null; then
-    ya pack -i -u
-fi
+command -v ya &>/dev/null && ya pack -i -u || echo "yazi not found"
 #---------------------------------------
 # swayosd setup
-if command -v swayosd-server &> /dev/null; then 
-    systemctl --user enable osd.service
-fi 
+command -v swayosd-server &>/dev/null && systemctl --user enable osd.service || echo "swayosd not found"
 #---------------------------------------
+# hypridle
+command -v hypridle &>/dev/null && systemctl --user enable hypridle.service || echo "hypridle not found"
 # reload daemon to complete
 systemctl daemon-reload

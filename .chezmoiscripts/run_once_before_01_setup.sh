@@ -150,3 +150,8 @@ sudo systemctl enable "${SYSTEM_SERVICES[@]}" && echo -e "${SUCCESS} System serv
 # enable user services
 echo -e "${MAROON} Enabling User Services...${NC}\n"
 systemctl --user enable "${USER_SERVICES[@]}" && echo -e "${SUCCESS} User services enabled & started" || echo -e "${FAIL} User services failed to enable/start"
+#----------------------
+# spicetify
+#if command -v spicetify &>/dev/null; then 
+#  spicetify backup apply 
+#fi
