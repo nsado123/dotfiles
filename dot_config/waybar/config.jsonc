@@ -48,7 +48,7 @@
             "on-click": "hyprctl dispatch exec 'kitty -e update.sh'",
             "interval": 21600000, // once every 6 hours
             "tooltip": true,
-            "tooltip-format": "{output}",
+            "tooltip-format": "update system",
             "signal": 20
         },        
 
