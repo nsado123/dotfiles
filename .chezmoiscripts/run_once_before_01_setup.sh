@@ -61,6 +61,7 @@ PACMAN_PACKAGES=(
     wlogout
     wl-clipboard
     slurp
+    grimblast-git
     satty
     hyprpolkitagent
     xdg-desktop-portal-hyprland
